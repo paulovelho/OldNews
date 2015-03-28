@@ -20,7 +20,7 @@ body.custom-background {background-repeat: repeat-x !important; }
 #wrap{background:#EEE;color:#333;font:16px/22px Georgia,Times New Roman,Times,serif;margin:0;padding:0;}
 #front{width:100%;height:auto;display:block;overflow:hidden !important;margin:0;padding:0;}
 #xfront{width:92%;max-width:1300px;margin:0 auto;height:auto;display:block;overflow:hidden !important;padding:0;}
-                                                                  
+
 /* ----------------------------------- base */
 a,a:visited{color:#444;text-decoration:none;}
 a:hover{text-decoration:none;color:#000;background:transparent;transition: all .35s linear;-o-transition: all .35s linear;-moz-transition: all .35s linear;-webkit-transition: all .35s linear;}

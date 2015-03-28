@@ -30,24 +30,23 @@
 		<?php echo (strftime("%Y")-100); ?>
 		</div>
 	</div>
+	
+	<div id="header">
+		<div class="head">
+			<h1><a href="<?php home_url(); ?>/"><?php bloginfo('name'); ?></a></h1> 
+			<div class="description"><?php bloginfo('description'); ?></div>
+		</div>
+		<div id="cat">
+			<div id="search">
+				<form id="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<input type="text" class="searchFolder" name="s" id="s" placeholder="buscar..." />
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div id="content">
-<div id="header">	
 
-	<div class="head">
-		<h1><a href="<?php home_url(); ?>/"><?php bloginfo('name'); ?></a></h1> 
-		<div class="description"><?php bloginfo('description'); ?></div>
-	</div>
-
-</div>
-
-<div id="cat">
-	<div id="search">
-	<form id="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<input type="text" class="searchFolder" name="s" id="s" placeholder="buscar..." />
-	</form>
-	</div>
-</div>
 
 
