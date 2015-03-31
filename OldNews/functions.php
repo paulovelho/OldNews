@@ -1,0 +1,94 @@
+<?php
+
+// adding post support
+add_theme_support( 'post-thumbnails' ); 
+
+function p_r($data){
+	echo "<pre>"; print_r($data); echo "</pre>";
+}
+
+function show100yearsAgoDate(){
+	$Semana = array("domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado");
+	$Mes = array("", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
+	$HundredAgo = mktime(0, 0, 0, date("m"), date("d"), date("Y")-100);
+	echo "Hoje é ".$Semana[strftime('%w', $HundredAgo)].strftime(", %d de ", $HundredAgo).$Mes[intval(strftime('%m', $HundredAgo))].strftime(' de %Y', $HundredAgo);
+}
+
+
+
+/**
+ * @package WordPress
+ * @subpackage Portfolio Press
+ *
+ * Loops over each of the terms in the custom taxonomy "portfolio_categories"
+ * and retrieves the first post from each.  Since this is an expensive
+ * request the result is built into an array and saved as a transient.
+ */
+
+function home_news() {
+	/* Retrieves all the terms from the taxonomy portfolio_category
+	 *  http://codex.wordpress.org/Function_Reference/get_categories
+	 */
+
+	$args = array(
+		'orderby' => 'name',
+		'order' => 'ASC',
+		'taxonomy' => 'category');
+
+	$categories = get_categories( $args );
+//	p_r($categories);
+
+	$home_news = array();
+	
+	/* Pulls the first post from each of the individual portfolio categories */
+	foreach( $categories as $category ) {
+	
+		$args = array(
+			'post_type' => 'post',
+			'posts_per_page' => 1,
+			'cat' => $category->cat_ID,
+			'no_found_rows' => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false
+		);
+		$the_query = new WP_Query( $args );
+
+		// The Loop
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			/* All the data pulled is saved into an array which we'll save later */
+
+			$home_news[$category->cat_ID] = array(
+				'category' => $category->name,
+				'id' => get_the_ID(),
+				'title' => get_the_title(),
+				'time' => get_the_date('d-M-').(get_the_date('Y')-100),
+				'link' => get_the_permalink(),
+				'content' => get_the_content("Leia mais...", true),
+				'thumb' => get_the_post_thumbnail()
+			);
+
+		endwhile;
+   }
+   	// Reset Post Data
+	wp_reset_postdata();
+	
+	set_transient( 'home_news', $home_news );
+	return $home_news;
+}
+
+/**
+ * Deletes the home_news transient if a portfolio post is updated
+ */
+function news_save( $post_id, $post ) {
+
+	// If this is an auto save routine don't do anyting
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
+		return;
+
+	delete_transient( 'home_news' );
+	
+}
+add_action('save_post', 'news_save', 10, 2 );
+
+
+?>
