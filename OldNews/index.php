@@ -25,10 +25,10 @@
 				echo '<div class="row">';
 			}
 			?>
-			<div class="col-md-4">
+			<div class="col-md-4 quadro">
 				<span class="category"><?=$n["category"]?></span>
 				<span class="date"><?=formatDate($n["time"])?></span>
-				<h4><?=$n["title"]?></h4>
+				<h3><?=$n["title"]?></h3>
 				<p><?=$n["content"]?></p>
 			</div>
 			<?
@@ -41,7 +41,7 @@
 
 		// 5 categories, adds one space:
 		?>
-			<div class="col-md-4">&nbsp;</div>
+			<div class="col-md-4 quadro">&nbsp;</div>
 		</div>
 	</div>
 <?
