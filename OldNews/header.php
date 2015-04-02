@@ -8,7 +8,8 @@
 <title><?php wp_title( '|', true, 'right' ); bloginfo( 'name' ); ?> | <?php bloginfo('description'); ?></title>
 
 <!-- 100anosatras -->
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/style.css" type="text/css" media="screen" />
 <link href='http://fonts.googleapis.com/css?family=Cardo|UnifrakturMaguntia' rel='stylesheet' type='text/css'>
 <link rel="shortcut icon" type="image/ico" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" />
 
@@ -19,19 +20,16 @@
 
 <body <?php body_class(); ?>>
 
-<div id="navi">
-	<div id="menu">
-		<div class="clock">
-			<?=show100yearsAgoDate()?>
-		</div>
-	</div>
-	
+<div class="container">
 	<div id="header">
-		<div class="head">
-			<h1><a href="<?php home_url(); ?>/"><?php bloginfo('name'); ?></a></h1> 
-			<div class="description"><?php bloginfo('description'); ?></div>
+		<div class="header-top">
+			<div class="clock"><?=show100yearsAgoDate()?></div>
 		</div>
-		<div id="cat">
+		<div class="header-title">
+			<h1><a href="<?php home_url(); ?>/"><?php bloginfo('name'); ?></a></h1> 
+			<span class="subtitle"><?php bloginfo('description'); ?></span>
+		</div>
+		<div class="header-bottom">
 			<div id="search">
 				<form id="searchform" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 					<input type="text" class="searchFolder" name="s" id="s" placeholder="buscar..." />
@@ -39,6 +37,5 @@
 			</div>
 		</div>
 	</div>
-</div>
 
 

@@ -7,14 +7,26 @@ function p_r($data){
 	echo "<pre>"; print_r($data); echo "</pre>";
 }
 
+function giveMeWeek($n){
+	$dias_semana = array("domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado");
+	return $dias_semana[$n];
+}
+function giveMeMonth($n){
+	$meses = array("", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
+	return $meses[$n];	
+}
+
 function show100yearsAgoDate(){
-	$Semana = array("domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado");
-	$Mes = array("", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
 	$HundredAgo = mktime(0, 0, 0, date("m"), date("d"), date("Y")-100);
-	echo "Hoje é ".$Semana[strftime('%w', $HundredAgo)].strftime(", %d de ", $HundredAgo).$Mes[intval(strftime('%m', $HundredAgo))].strftime(' de %Y', $HundredAgo);
+	echo "Hoje é ".giveMeWeek(strftime('%w', $HundredAgo)).strftime(", %d de ", $HundredAgo).giveMeMonth(intval(strftime('%m', $HundredAgo))).strftime(' de %Y', $HundredAgo);
 }
 
 
+
+function formatDate($data){
+	$data = explode("-", $data);
+	return $data[2]." de ".giveMeMonth(intval($data[1]))." de ".$data[0];
+}
 
 /**
  * @package WordPress
@@ -41,6 +53,7 @@ function home_news() {
 	$news = array();
 	$home_news = array();
 	$home_news["extras"] = array();
+	$home_news["cats"] = array();
 	
 	/* Pulls the first post from each of the individual portfolio categories */
 	foreach( $categories as $category ) {
@@ -63,7 +76,7 @@ function home_news() {
 				'category' => $category->name,
 				'id' => get_the_ID(),
 				'title' => get_the_title(),
-				'time' => get_the_date('d-M-').(get_the_date('Y')-100),
+				'time' => (get_the_date('Y')-100).get_the_date('-m-d'),
 				'link' => get_the_permalink(),
 				'content' => get_the_excerpt(),
 				'thumb' => get_the_post_thumbnail()
@@ -82,8 +95,8 @@ function home_news() {
 			// newest one is head:
 			$home_news["manchete"] = $n;
 		} else {
-			if(empty($home_news[$n["category"]])){
-				$home_news[$n["category"]] = $n;
+			if(empty($home_news["cats"][$n["category"]])){
+				$home_news["cats"][$n["category"]] = $n;
 			} else {
 				array_push($home_news["extras"], $n);
 			}

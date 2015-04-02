@@ -1,13 +1,50 @@
 <?php get_template_part("oldnews") ?>
 <?php get_header(); ?>
+
 <div id="content">
-
 <?php 
-
 
 //	$news = get_transient('home_news');
 	if(!$news) $news = home_news();
-	p_r($news);
+
+?>
+	<div class="row">
+		<div class="col-md-12 manchete">
+			<h2><?=$news["manchete"]["title"]?></h2>
+				<span class="category"><?=$news["manchete"]["category"]?></span>
+				<span class="date"><?=formatDate($news["manchete"]["time"])?></span>
+			<p><?=$news["manchete"]["content"]?></p>
+		</div>
+	</div>
+
+	<div class="home-categories">
+	<?php
+		$column = 1;
+		foreach($news["cats"] as $n){
+			if($column == 1){
+				echo '<div class="row">';
+			}
+			?>
+			<div class="col-md-4">
+				<span class="category"><?=$n["category"]?></span>
+				<span class="date"><?=formatDate($n["time"])?></span>
+				<h4><?=$n["title"]?></h4>
+				<p><?=$n["content"]?></p>
+			</div>
+			<?
+			if($column == 3){
+				echo '</div>';
+				$column = 0;
+			}
+			$column++;
+		}
+
+		// 5 categories, adds one space:
+		?>
+			<div class="col-md-4">&nbsp;</div>
+		</div>
+	</div>
+<?
 
 /*
 	foreach ($categories as $category) : ?>
@@ -28,6 +65,7 @@
 		<?php endif; ?>
 	<?php endforeach; 
 */
+	p_r($news);
 ?>
 
 </div>
