@@ -38,14 +38,16 @@ function home_news() {
 	$categories = get_categories( $args );
 //	p_r($categories);
 
+	$news = array();
 	$home_news = array();
+	$home_news["extras"] = array();
 	
 	/* Pulls the first post from each of the individual portfolio categories */
 	foreach( $categories as $category ) {
 	
 		$args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 1,
+			'posts_per_page' => 2,
 			'cat' => $category->cat_ID,
 			'no_found_rows' => true,
 			'update_post_meta_cache' => false,
@@ -57,20 +59,36 @@ function home_news() {
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			/* All the data pulled is saved into an array which we'll save later */
 
-			$home_news[$category->cat_ID] = array(
+			$news[get_the_date('Ymd')] = array(
 				'category' => $category->name,
 				'id' => get_the_ID(),
 				'title' => get_the_title(),
 				'time' => get_the_date('d-M-').(get_the_date('Y')-100),
 				'link' => get_the_permalink(),
-				'content' => get_the_content("Leia mais...", true),
+				'content' => get_the_excerpt(),
 				'thumb' => get_the_post_thumbnail()
 			);
 
 		endwhile;
-   }
-   	// Reset Post Data
+    }
+	// Reset Post Data
 	wp_reset_postdata();
+    ksort($news);
+    $news = array_reverse($news);
+
+    // I have the news, let's organize it:
+	foreach ($news as $n) {
+		if(empty($home_news["manchete"])){
+			// newest one is head:
+			$home_news["manchete"] = $n;
+		} else {
+			if(empty($home_news[$n["category"]])){
+				$home_news[$n["category"]] = $n;
+			} else {
+				array_push($home_news["extras"], $n);
+			}
+		}
+	}
 	
 	set_transient( 'home_news', $home_news );
 	return $home_news;
