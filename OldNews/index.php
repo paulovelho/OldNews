@@ -28,7 +28,16 @@
 			<div class="col-md-4 quadro">
 				<span class="category"><?=$n["category"]?></span>
 				<span class="date"><?=formatDate($n["time"])?></span>
-				<h3><?=$n["title"]?></h3>
+				<?php
+				if(!empty($n["thumb"])) { 
+					echo "<a href='".$n["link"]."'>";
+					echo "<div class='thumb_container'>".$n["thumb"]."</div>";
+					echo "<h3 class='thumb_title'>".$n["title"]."</h3>";
+					echo "</a>";
+				} else { 
+					echo "<a href='".$n["link"]."'><h3>".$n["title"]."</h3></a>";
+				}
+				?>
 				<p><?=$n["content"]?></p>
 			</div>
 			<?
@@ -65,7 +74,7 @@
 		<?php endif; ?>
 	<?php endforeach; 
 */
-	p_r($news);
+//	p_r($news);
 ?>
 
 </div>
