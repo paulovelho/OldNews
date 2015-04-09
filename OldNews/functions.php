@@ -29,6 +29,19 @@ function formatDate($data){
 	return $data[2]." de ".giveMeMonth(intval($data[1]))." de ".$data[0];
 }
 
+
+function getParentCategories(){
+	$args = array(
+		'orderby' => 'name',
+		'order' => 'ASC',
+		'taxonomy' => 'category',
+		'child_of' => 0
+	);
+	$categories = get_categories( $args );
+	return $categories;
+}
+
+
 /**
  * @package WordPress
  * @subpackage Portfolio Press
@@ -37,18 +50,8 @@ function formatDate($data){
  * and retrieves the first post from each.  Since this is an expensive
  * request the result is built into an array and saved as a transient.
  */
-
 function home_news() {
-	/* Retrieves all the terms from the taxonomy portfolio_category
-	 *  http://codex.wordpress.org/Function_Reference/get_categories
-	 */
-
-	$args = array(
-		'orderby' => 'name',
-		'order' => 'ASC',
-		'taxonomy' => 'category');
-
-	$categories = get_categories( $args );
+	$categories = getParentCategories();
 //	p_r($categories);
 
 	$news = array();
@@ -58,7 +61,7 @@ function home_news() {
 	
 	/* Pulls the first post from each of the individual portfolio categories */
 	foreach( $categories as $category ) {
-	
+
 		$args = array(
 			'post_type' => 'post',
 			'posts_per_page' => 2,

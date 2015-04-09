@@ -25,6 +25,9 @@ a,a:visited{
 	color:#444; 
 	text-decoration:none; 
 }
+a:active, a:link{
+	text-decoration:none;
+}
 a:hover{ 
 	text-decoration:none; 
 	color:#000; 
@@ -53,6 +56,16 @@ h2{
 p {
 	text-align: justify;
 }
+.clear { clear: both; }
+.full-row {
+	width: 100%;
+	position: relative;
+	min-height: 1px;
+}
+
+#content {
+	margin-top: 50px;
+}
 
 /* ================================ HEAD */
 #header {
@@ -74,7 +87,7 @@ p {
 	display:block;
 	text-align:center;
 	padding:0;
-	color:#221E1D;
+	color:#222;
 	text-transform: lowercase;
 	font: normal 75px/55px UnifrakturMaguntia, Georgia,Times New Roman,Times,serif;
 	letter-spacing: 5px;
@@ -92,6 +105,7 @@ p {
 	display:block;
 	text-align:center;
 	padding:0;
+	padding-bottom: 10px;
 	font-family: Times New Roman;
 }
 #header #searchform {
@@ -124,6 +138,33 @@ p {
 		border-top: 2px solid #333; 
 		border-bottom: 1px solid #333;
 	}
+
+.category-nav div {
+	text-align: center;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-family: Times new Roman;
+	font-size: 20px;
+}
+.category-nav span {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.category-nav span a:hover {
+	background:transparent; 
+	color:#999;
+}
+
+
+/* ============================== FOOTER */
+#footer {
+	margin-top: 50px;
+	padding: 20px 0;
+	background-color: #444;
+	height: 300px;
+	color: #CCC;
+}
+
 
 
 /* ============================== HOME */

@@ -2,8 +2,8 @@
 <?php get_header(); ?>
 
 <div id="content">
-<?php 
 
+<?php 
 //	$news = get_transient('home_news');
 	if(!$news) $news = home_news();
 
