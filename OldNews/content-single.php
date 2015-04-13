@@ -5,14 +5,14 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php formatDate(get_the_date("Y-m-d")); ?>
+			<span class="category"><?php $cat = get_the_category(); echo $cat[0]->name; ?></span>
+			<span class="date"><?php echo formatDatePost(get_the_time("Y-m-d")); ?></span>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">

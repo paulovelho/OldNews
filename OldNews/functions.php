@@ -3,6 +3,21 @@
 // adding post support
 add_theme_support( 'post-thumbnails' ); 
 set_post_thumbnail_size( 400, 200, array("center", "center") );
+add_post_type_support( '{{post_type}}', 'simple-page-sidebars' );
+
+
+register_sidebars( 1,
+	array(
+    'name' => __('Post widget', 'OldNews'),
+		'id' => 'sidebar',
+		'description' => __('The single bar widget area for your single posts.', 'OldNews'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+	) 
+);
+
 
 function p_r($data){
 	echo "<pre>"; print_r($data); echo "</pre>";
@@ -22,6 +37,11 @@ function show100yearsAgoDate(){
 	echo "Hoje é ".giveMeWeek(strftime('%w', $HundredAgo)).strftime(", %d de ", $HundredAgo).giveMeMonth(intval(strftime('%m', $HundredAgo))).strftime(' de %Y', $HundredAgo);
 }
 
+
+function formatDatePost($data){
+	$data = explode("-", $data);
+	return $data[2]." de ".giveMeMonth(intval($data[1]))." de ".($data[0]-100);
+}
 
 
 function formatDate($data){

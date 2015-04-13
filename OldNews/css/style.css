@@ -237,6 +237,48 @@ span.date {
 
 
 
+/* ============================== POST */
+article {
+	display: block;
+}
+	article h2 {
+		text-align: center;
+		line-height: 50px;
+	}
+	article .entry-meta {
+		display: block;
+		clear: both;
+		margin: 10px;
+	}
+	article .entry-meta .date, article .entry-meta .category {
+		float: right;
+		font-family: Cardo,times new roman,georgia;
+		clear: both;
+	}
+		article .category {
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+	article .entry-content {
+		padding-top: 50px;
+		clear: both;
+		display: block;
+	}
+		article .entry-content p {
+			text-indent: 50px;
+			text-align: justify;
+			font-family: Times New Roman;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		article .entry-content strong {
+			font-size: 20px;
+			font-weight: bolder;
+			text-indent: 20px;
+		}
+
+
 
 
 
