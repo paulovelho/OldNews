@@ -8,11 +8,13 @@
 	if(!$news) $news = home_news();
 
 ?>
-	<div class="row">
-		<div class="col-md-12 manchete">
+	<div class="row manchete">
+		<div class="col-md-2">
+			<span class="category"><?=$news["manchete"]["category"]?></span>
+			<span class="date"><?=formatDate($news["manchete"]["time"])?></span>
+		</div>
+		<div class="col-md-10">
 			<h2><?=$news["manchete"]["title"]?></h2>
-				<span class="category"><?=$news["manchete"]["category"]?></span>
-				<span class="date"><?=formatDate($news["manchete"]["time"])?></span>
 			<p><?=$news["manchete"]["content"]?></p>
 		</div>
 	</div>

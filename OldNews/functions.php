@@ -3,6 +3,7 @@
 // adding post support
 add_theme_support( 'post-thumbnails' ); 
 set_post_thumbnail_size( 400, 200, array("center", "center") );
+set_post_thumbnail_size( 100, 100, array("center", "center") );
 add_post_type_support( '{{post_type}}', 'simple-page-sidebars' );
 
 

@@ -194,6 +194,10 @@ span.date {
 	}
 	.manchete p {
 		text-indent: 70px;
+		margin-top: 30px;
+	}
+	.manchete .category {
+		margin-top: 30px;
 	}
 
 .home-categories .quadro {
@@ -282,7 +286,35 @@ article {
 
 
 
+/* ============================== WIDGET */
+.oldnews_recent_posts_thumbnails_widget h3 {
+	font-family: Cardo,times new roman,georgia;
+	font-size: 22px;
+}
 
+.oldnews_recent_posts_thumbnails_widget ul {
+	list-style: none;
+}
+	.oldnews_recent_posts_thumbnails_widget li {
+		float: left;
+		width: 100%;
+		margin-top: 20px;
+	}
+	.oldnews_recent_posts_thumbnails_widget .oldnews-post-date {
+		font-size: 12px;
+		font-style: italic;
+		clear: both;
+		margin-left: 10px;
+	}
+	.oldnews_recent_posts_thumbnails_widget img {
+		float: left;
+		margin-right: 10px;
+		width: 70px; height: 70px;
+	}
+	.oldnews_recent_posts_thumbnails_widget a {
+		font-family: Times New Roman;
+		font-size: 16px;
+	}
 
 
 
