@@ -63,6 +63,19 @@ function getParentCategories(){
 }
 
 
+function category_news($catID){
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 2,
+		'cat' => $category->cat_ID,
+		'no_found_rows' => true,
+		'update_post_meta_cache' => false,
+		'update_post_term_cache' => false
+	);
+	$the_query = new WP_Query( $args );
+}
+
+
 /**
  * @package WordPress
  * @subpackage Portfolio Press
@@ -140,8 +153,10 @@ function news_save( $post_id, $post ) {
 	// If this is an auto save routine don't do anyting
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
-
 	delete_transient( 'home_news' );
+	// brasil:
+	delete_transient( 'category_news-3' );
+	// mundo:
 	
 }
 add_action('save_post', 'news_save', 10, 2 );

@@ -22,7 +22,7 @@ body{
 
 /* ----------------------------------- base */
 a,a:visited{ 
-	color:#444; 
+	color:#444 !important;
 	text-decoration:none; 
 }
 a:active, a:link{
@@ -282,6 +282,30 @@ article {
 			text-indent: 20px;
 		}
 
+
+footer.entry-meta {
+	text-align: right;
+	width: 100%;
+	padding: 30px;
+}
+	.entry-meta .tags {
+		font-size: 12px;
+	}
+		.entry-meta .tags .i {
+			font-family: Times New Roman;
+		}
+	.entry-meta .post-credito {
+		font-family: Cardo, Georgia;
+	}
+	.entry-meta .autor {
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.entry-meta .agencia {
+		font-style: italic;
+		font-variant: small-caps;
+		font-size: 14px;
+	}
 
 
 

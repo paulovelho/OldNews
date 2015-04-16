@@ -14,7 +14,7 @@
 			<span class="date"><?=formatDate($news["manchete"]["time"])?></span>
 		</div>
 		<div class="col-md-10">
-			<h2><?=$news["manchete"]["title"]?></h2>
+			<a href="<?=$news["manchete"]["link"]?>" title="<?=$news["manchete"]["title"]?>"><h2><?=$news["manchete"]["title"]?></h2></a>
 			<p><?=$news["manchete"]["content"]?></p>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 				<span class="date"><?=formatDate($n["time"])?></span>
 				<?php
 				if(!empty($n["thumb"])) { 
-					echo "<a href='".$n["link"]."'>";
+					echo "<a href='".$n["link"]."' title='".$n["title"]."'>";
 					echo "<div class='thumb_container'>".$n["thumb"]."</div>";
 					echo "<h3 class='thumb_title'>".$n["title"]."</h3>";
 					echo "</a>";
