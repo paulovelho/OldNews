@@ -3,20 +3,8 @@
 
 <?php
 	$category_id = 3;
-	$page_parent = 108;
-	// página mãe
-	$args = array(
-		'post_parent' => $page_parent,
-		'post_type'   => 'page', 
-		'posts_per_page' => 1,
-		'post_status' => 'publish',
-		'orderby' => "menu_order" );
-	$pages = get_posts($args);
-	$page = array_pop($pages);
-
-//	$news = get_transient('category_news-'.$category_id);
-	if(!$news) $news = category_news($category_id);
-
+	$page_id = 108;
+	$page = get_post($page_id);
 
 ?>
 
@@ -27,13 +15,33 @@
 	</header>
 
 	<div class="row">
-		<div class="col-md-8 category-page">
-			<?=apply_filters('the_content', $page->post_content)?>
+		<div class="col-md-7 category-page">
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<div class="page">
+					<?=apply_filters('the_content', $page->post_content)?>
+				</div>
+			</article>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-5 category-side">
+			<ul>
 			<?
-				p_r($news);
+			$news = get_transient('category_news-'.$category_id);
+			if(!$news) $news = category_news($category_id);
+			foreach ($news as $n) {
+				?>
+			<li>
+                <div class="oldnews-post-small-thumbnail">
+                    <?php if ( $n["has_thumb"] ) { echo '<a href="'.$n["link"].'" class="oldnews-thumbnail-link">'.$n["thumb"].'</a>'; } ?>
+                    <div class="oldnews-post-header">
+	     	    		<span class="oldnews-post-date"><?php echo formatDatePost($n["time"]) ?></span><br/>
+        		    	<a href="<?=$n["link"]?>" class="oldnews-header-link"><?=$n["title"]?></a>
+                    </div>
+                </div>
+			</li>
+				<?
+			}
 			?>
+			</ul>
 		</div>
 	</div>
 

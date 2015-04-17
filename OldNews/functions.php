@@ -3,7 +3,10 @@
 // adding post support
 add_theme_support( 'post-thumbnails' ); 
 set_post_thumbnail_size( 400, 200, array("center", "center") );
-set_post_thumbnail_size( 100, 100, array("center", "center") );
+if ( function_exists( 'add_image_size' ) ) {
+	add_image_size( 'post-thumb', 100, 100, array("center", "center") );
+}
+
 add_post_type_support( '{{post_type}}', 'simple-page-sidebars' );
 
 
@@ -64,15 +67,29 @@ function getParentCategories(){
 
 
 function category_news($catID){
+	$news = [];
 	$args = array(
 		'post_type' => 'post',
-		'posts_per_page' => 2,
-		'cat' => $category->cat_ID,
+		'posts_per_page' => 6,
+		'cat' => $catID,
 		'no_found_rows' => true,
 		'update_post_meta_cache' => false,
 		'update_post_term_cache' => false
 	);
 	$the_query = new WP_Query( $args );
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		array_push($news, array(
+			"title" => get_the_title(),
+			"id" => get_the_ID(),
+			"time" => get_the_date('Y-m-d'),
+			"link" => get_the_permalink(),
+			"has_thumb" => has_post_thumbnail(get_the_ID()),
+			"thumb" => get_the_post_thumbnail(get_the_ID(), "post-thumb" )
+		));
+	endwhile;
+
+	set_transient( 'category_news-'.$catID, $news );
+	return $news;
 }
 
 

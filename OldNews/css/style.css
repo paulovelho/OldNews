@@ -1,4 +1,8 @@
 
+
+@import url("post.css");
+
+
 /* ----------------------------------- reset.css */ 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { 
 	margin: 0; 
@@ -263,7 +267,7 @@ article {
 			font-weight: bold;
 		}
 
-	article .entry-content {
+	article .entry-content, article .page {
 		padding-top: 50px;
 		clear: both;
 		display: block;
@@ -275,12 +279,17 @@ article {
 			font-size: 16px;
 			margin-bottom: 20px;
 		}
-		article .entry-content strong {
+		article .page p {
+			text-align: justify;
+			font-family: Times New Roman;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		article .entry-content strong, article .page strong {
 			font-size: 20px;
 			font-weight: bolder;
 			text-indent: 20px;
 		}
-
 
 footer.entry-meta {
 	text-align: right;
@@ -315,26 +324,26 @@ footer.entry-meta {
 	font-size: 22px;
 }
 
-.oldnews_recent_posts_thumbnails_widget ul {
+.oldnews_recent_posts_thumbnails_widget ul, .category-side ul {
 	list-style: none;
 }
-	.oldnews_recent_posts_thumbnails_widget li {
+	.oldnews_recent_posts_thumbnails_widget li, .category-side li {
 		float: left;
 		width: 100%;
 		margin-top: 20px;
 	}
-	.oldnews_recent_posts_thumbnails_widget .oldnews-post-date {
+	.oldnews_recent_posts_thumbnails_widget .oldnews-post-date, .category-side .oldnews-post-date {
 		font-size: 12px;
 		font-style: italic;
 		clear: both;
 		margin-left: 10px;
 	}
-	.oldnews_recent_posts_thumbnails_widget img {
+	.oldnews_recent_posts_thumbnails_widget img, .category-side img {
 		float: left;
 		margin-right: 10px;
 		width: 70px; height: 70px;
 	}
-	.oldnews_recent_posts_thumbnails_widget a {
+	.oldnews_recent_posts_thumbnails_widget a, .category-side a {
 		font-family: Times New Roman;
 		font-size: 16px;
 	}
