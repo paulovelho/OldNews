@@ -154,14 +154,44 @@
 		$guaranaComRolha = preg_replace(array_keys($trans), $trans, $guaranaComRolha);
 	}
 
+
+function giveMeWeek($n){
+	$dias_semana = array("domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado");
+	return $dias_semana[$n];
+}
+function giveMeMonth($n){
+	$meses = array("", "janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro");
+	return $meses[$n];	
+}
+function show100yearsAgoDate(){
+	$HundredAgo = @mktime(0, 0, 0, date("m"), date("d"), date("Y")-100);
+	echo "Hoje é ".giveMeWeek(@strftime('%w', $HundredAgo)).@strftime(", %d de ", $HundredAgo).giveMeMonth(intval(@strftime('%m', $HundredAgo))).@strftime(' de %Y', $HundredAgo);
+}
+
 ?>
 
 
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Orthographia - Projeto de publicação de 100 anos atrás</title>
-		<style type="text/css" media="screen">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head profile="http://gmpg.org/xfn/11">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width" />	
+
+<title>Orthographia - Projeto de publicação de 100 anos atrás</title>
+
+<!-- 100anosatras -->
+<link rel="stylesheet" href="http://www.100anosatras.com.br/wp-content/themes/100AnosAtras/css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://www.100anosatras.com.br/wp-content/themes/100AnosAtras/css/style.css" type="text/css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Cardo|UnifrakturMaguntia' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" type="image/ico" href="http://www.100anosatras.com.br/wp-content/themes/100AnosAtras/images/favicon.ico" />
+
+<!-- wp -->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.100anosatras.com.br/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.100anosatras.com.br/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+
+	<style type="text/css" media="screen">
 body { 
 	/* fallback */ 
 	background-color: #AAA; 
@@ -180,13 +210,6 @@ body {
 	/* Opera cannot do radial gradients yet */ 
 
 	font-family: Verdana;
-}
-.container {
-	width: 800px;
-	left: 50%;
-	margin-top: 20px;
-	margin-left: -400px;
-	position: absolute;
 }
 .result {
 	padding: 30px;
@@ -219,17 +242,48 @@ button {
 	font-size: 16px;
 	font-variant: small-caps;
 }
-		</style>
-	</head>
+#footer {
+	margin-top: 200px;
+}
+	</style>
+</head>
 
-	<body>
-		<div class="container">
-			<div class="result"><?=nl2br($guaranaComRolha)?></div>
-			<form name="ortho" method="post">
-				Texto original: <br/>
-			<textarea name="texto"><?=$texto?></textarea>
-			<button type="submit">Orthographyzar!</button>
-			</form>
+<body class="home blog">
+
+<div class="container">
+	<div id="header">
+		<div class="header-top">
+			<div class="clock"><?=show100yearsAgoDate()?></div>
 		</div>
-	</body>
+		<div class="header-title">
+			<h1><a href="http://www.100anosatras.com.br/">100 anos atrás</a></h1> 
+			<span class="subtitle">As notícias do dia de hoje, 100 anos atrás</span>
+		</div>
+		<div class="header-bottom">
+			<div id="search">
+				&nbsp;
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="result"><?=nl2br($guaranaComRolha)?></div>
+		<form name="ortho" method="post">
+			Texto original: <br/>
+		<textarea name="texto"><?=$texto?></textarea>
+		<button type="submit">Orthographyzar!</button>
+		</form>
+	</div>
+	<div class="clear"></div>
+	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9"></div>
+				<div class="col-md-3">
+					<span>Busca nos arquivos</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
 </html>
