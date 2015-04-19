@@ -65,6 +65,16 @@ function getParentCategories(){
 	return $categories;
 }
 
+function getArrCategories(){
+	return array(
+		3 => "Brasil", 
+		6 => "Ciências",
+		4 => "Cultura",
+		5 => "Esportes",
+		2 => "Mundo"
+	);
+}
+
 
 function category_news($catID){
 	$news = [];
@@ -102,21 +112,21 @@ function category_news($catID){
  * request the result is built into an array and saved as a transient.
  */
 function home_news() {
-	$categories = getParentCategories();
+	$categories = getArrCategories();
 //	p_r($categories);
 
-	$news = array();
 	$home_news = array();
 	$home_news["extras"] = array();
 	$home_news["cats"] = array();
+	$home_news["imagem"] = null;
 	
 	/* Pulls the first post from each of the individual portfolio categories */
-	foreach( $categories as $category ) {
-
+	$news = array();
+	foreach ($categories as $cat_id => $cat_name) {
 		$args = array(
 			'post_type' => 'post',
 			'posts_per_page' => 2,
-			'cat' => $category->cat_ID,
+			'cat' => $cat_id,
 			'no_found_rows' => true,
 			'update_post_meta_cache' => false,
 			'update_post_term_cache' => false
@@ -126,9 +136,8 @@ function home_news() {
 		// The Loop
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			/* All the data pulled is saved into an array which we'll save later */
-
 			$news[get_the_date('Ymd')] = array(
-				'category' => $category->name,
+				'category' => $cat_name,
 				'id' => get_the_ID(),
 				'title' => get_the_title(),
 				'time' => (get_the_date('Y')-100).get_the_date('-m-d'),
@@ -136,7 +145,6 @@ function home_news() {
 				'content' => get_the_excerpt(),
 				'thumb' => get_the_post_thumbnail()
 			);
-
 		endwhile;
     }
 	// Reset Post Data
@@ -158,6 +166,25 @@ function home_news() {
 		}
 	}
 	
+	// get the last image of the month:
+	// imagem do mês, categoria_id = 35
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 1,
+		'cat' => 35	);
+	$the_query = new WP_Query( $args );
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$home_news["imagem"] = array(
+			'id' => get_the_ID(),
+			'title' => get_the_title(),
+			'link' => get_the_permalink(),
+			'caption' => get_the_excerpt(),
+			'image' => get_the_post_thumbnail(get_the_ID(), "large") 
+		);
+	endwhile;
+	// Reset Post Data
+	wp_reset_postdata();
+
 	set_transient( 'home_news', $home_news );
 	return $home_news;
 }

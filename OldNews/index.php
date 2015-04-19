@@ -7,6 +7,7 @@
 //	$news = get_transient('home_news');
 	if(!$news) $news = home_news();
 
+	p_r($news);
 ?>
 	<div class="row manchete">
 		<div class="col-md-2">
@@ -37,7 +38,7 @@
 					echo "<h3 class='thumb_title'>".$n["title"]."</h3>";
 					echo "</a>";
 				} else { 
-					echo "<a href='".$n["link"]."'><h3>".$n["title"]."</h3></a>";
+					echo "<a href='".$n["link"]."' title='".$n["title"]."'><h3>".$n["title"]."</h3></a>";
 				}
 				?>
 				<p><?=$n["content"]?></p>
@@ -55,6 +56,22 @@
 			<div class="col-md-4 quadro">&nbsp;</div>
 		</div>
 	</div>
+
+	<div class="row extra1">
+		<div class="col-md-6">
+			<span class="category"><?=$news["extras"][0]["category"]?></span>
+			<span class="date"><?=formatDate($news["extras"][0]["time"])?></span>
+			<a href="<?=$news['extras'][0]['link']?>" title="<?=$news['extras'][0]['title']?>"><h3><?=$news["extras"][0]["title"]?></h3></a>
+
+		</div>
+		<div class="col-md-6 imagem-do-mes">
+			<a href="<?=$news['imagem']['link']?>">
+				<img src="<?=$news['imagem']['image']?>" title="<?=$news['imagem']['caption']?>" />
+			</a>
+		</div>
+	</div>
+
+
 <?
 
 /*
