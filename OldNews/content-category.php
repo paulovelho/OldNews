@@ -2,15 +2,11 @@
 
 <div class="full-row category-nav">
 	<div>
-<?php 
-	$cats = getParentCategories();
-	foreach ($cats as $c) {
-		if($c->slug == "extra") continue;
-		?>
-		<span><a href="/caderno/<?=$c->slug?>"><?=$c->name?></a></span>
-		<?
-	}
-?>
+		<span><a href="/caderno/brasil">Brasil</a></span>
+		<span><a href="/caderno/mundo">Mundo</a></span>
+		<span><a href="/caderno/esportes">Esportes</a></span>
+		<span><a href="/caderno/cultura">Cultura</a></span>
+		<span><a href="/caderno/ciencias">Ciências</a></span>
 		<span><a href="/caderno/extra">Caderno Extra</a></span>
 	</div>
 </div>
