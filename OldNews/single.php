@@ -3,22 +3,25 @@
 
 <div id="content">
 
-<div class="row">
-	<div class="col-md-9">
-		<?php while ( have_posts() ) : the_post(); ?>
+<?php 
+while ( have_posts() ) : the_post();
 
-			<?php get_template_part( 'content', 'single' ); ?>
+	$category = get_the_category();
+	$parent = $category[0]->category_parent;
 
-			<?php comments_template( '', true ); ?>
+	switch ($parent) {
+		case 21: // EXTRA
+			include(TEMPLATEPATH."/single-extra.php");
+			break;	
+		default:
+			include(TEMPLATEPATH."/single-default.php");
+			break;
+	}
 
-		<?php endwhile; // end of the loop. ?>
-	</div>
-	<div class="col-md-3">
-		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar') ) : ?>
-			<h3><?php _e('Widgetized', 'OldNews') ?></h3>
-		<?php endif; ?>
-	</div>
-</div>
+
+endwhile;
+?>
+
 
 </div>
 <?php get_template_part('footer'); ?>

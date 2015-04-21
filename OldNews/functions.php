@@ -179,7 +179,7 @@ function home_news() {
 			'title' => get_the_title(),
 			'link' => get_the_permalink(),
 			'caption' => get_the_excerpt(),
-			'image' => get_the_post_thumbnail(get_the_ID(), "large") 
+			'image' => wp_get_attachment_url( get_post_thumbnail_id(get_the_ID(), "large") )
 		);
 	endwhile;
 	// Reset Post Data

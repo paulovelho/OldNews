@@ -186,8 +186,9 @@ span.date {
 
 .manchete {
 	border-bottom: 1px solid #666;
-	padding-bottom: 10px;
+	padding-bottom: 20px;
 	margin-bottom: 10px;
+	margin-top: 50px;
 }
 	.manchete h2 {
 		text-align: center;
@@ -216,6 +217,7 @@ span.date {
 		font-size: 30px;
 		padding-top: 20px;
 		margin: 10px 5px;
+		text-align: center;
 	}
 	.home-categories h3.thumb_title {
 		padding-top: 0;
@@ -242,7 +244,23 @@ span.date {
 		width: auto;
 	}
 
-
+.extra1 {
+	margin-top: 20px;
+	border-top: 1px solid #666;
+	padding-top: 20px;
+}
+	.extra1 .imagem-do-mes img {
+		width: 100%;
+	}
+	.imagem-do-mes p {
+		text-align: left;
+	}
+	.imagem-do-mes span {
+		float: left !important;
+	}
+	.imagem-do-mes h3 {
+		text-align: left !important;
+	}
 
 /* ============================== POST */
 article {
@@ -315,6 +333,11 @@ footer.entry-meta {
 		font-size: 14px;
 	}
 
+
+.imagem-do-mes-large img {
+	margin-top: 20px;
+	width: 100%;
+}
 
 
 

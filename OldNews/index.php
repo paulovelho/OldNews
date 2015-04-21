@@ -1,13 +1,13 @@
 <?php get_template_part("oldnews") ?>
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content home">
 
 <?php 
 //	$news = get_transient('home_news');
 	if(!$news) $news = home_news();
 
-	p_r($news);
+//	p_r($news);
 ?>
 	<div class="row manchete">
 		<div class="col-md-2">
@@ -57,17 +57,33 @@
 		</div>
 	</div>
 
-	<div class="row extra1">
-		<div class="col-md-6">
+	<div class="row extra1 home-categories">
+		<div class="col-md-5 imagem-do-mes">
+			<a href="<?=$news['imagem']['link']?>">
+				<img src="<?=$news['imagem']['image']?>" alt="<?=$news["imagem"]["caption"]?>" title="<?=$news["imagem"]["caption"]?>" />
+			</a>
+		</div>
+		<div class="col-md-3 imagem-do-mes">
+			<span class="category">Caderno Extra</span>
+			<h3>Imagem do mez</h3>
+			<span class="date"><?=$news["imagem"]["title"]?></span><br/><br/>
+			<p><?=$news["imagem"]["caption"]?></p>
+		</div>
+
+		<div class="col-md-4">
 			<span class="category"><?=$news["extras"][0]["category"]?></span>
 			<span class="date"><?=formatDate($news["extras"][0]["time"])?></span>
-			<a href="<?=$news['extras'][0]['link']?>" title="<?=$news['extras'][0]['title']?>"><h3><?=$news["extras"][0]["title"]?></h3></a>
-
-		</div>
-		<div class="col-md-6 imagem-do-mes">
-			<a href="<?=$news['imagem']['link']?>">
-				<img src="<?=$news['imagem']['image']?>" title="<?=$news['imagem']['caption']?>" />
-			</a>
+				<?php
+				if(!empty($news['extras'][0]["thumb"])) { 
+					echo "<a href='".$news['extras'][0]["link"]."' title='".$news['extras'][0]["title"]."'>";
+					echo "<div class='thumb_container'>".$news['extras'][0]["thumb"]."</div>";
+					echo "<h3 class='thumb_title'>".$news['extras'][0]["title"]."</h3>";
+					echo "</a>";
+				} else { 
+					echo "<a href='".$news['extras'][0]["link"]."' title='".$news['extras'][0]["title"]."'><h3>".$news['extras'][0]["title"]."</h3></a>";
+				}
+				?>
+			<p><?=$news["extras"][0]["content"]?></p>
 		</div>
 	</div>
 
