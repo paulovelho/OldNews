@@ -9,7 +9,7 @@
 
 //	p_r($news);
 ?>
-	<div class="row manchete">
+	<div class="row manchete bottom-line">
 		<div class="col-md-2">
 			<span class="category"><?=$news["manchete"]["category"]?></span>
 			<span class="date"><?=formatDate($news["manchete"]["time"])?></span>
@@ -57,7 +57,7 @@
 		</div>
 	</div>
 
-	<div class="row extra1 home-categories">
+	<div class="row extra1 home-categories top-line">
 		<div class="col-md-5 imagem-do-mes">
 			<a href="<?=$news['imagem']['link']?>">
 				<img src="<?=$news['imagem']['image']?>" alt="<?=$news["imagem"]["caption"]?>" title="<?=$news["imagem"]["caption"]?>" />

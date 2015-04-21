@@ -158,6 +158,15 @@ p {
 	color:#999;
 }
 
+.top-line {
+	margin-top: 20px;
+	border-top: 1px solid #666;
+}
+.bottom-line {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #666;
+}
+
 
 /* ============================== FOOTER */
 #footer {
@@ -185,9 +194,7 @@ span.date {
 }
 
 .manchete {
-	border-bottom: 1px solid #666;
 	padding-bottom: 20px;
-	margin-bottom: 10px;
 	margin-top: 50px;
 }
 	.manchete h2 {
@@ -245,8 +252,6 @@ span.date {
 	}
 
 .extra1 {
-	margin-top: 20px;
-	border-top: 1px solid #666;
 	padding-top: 20px;
 }
 	.extra1 .imagem-do-mes img {
@@ -338,8 +343,21 @@ footer.entry-meta {
 	margin-top: 20px;
 	width: 100%;
 }
-
-
+	.outras-imagens img {
+		width: 100%;
+	}
+	.outras-imagens h4 {
+		margin-top: 20px;
+		font-size: 22px;
+		font-family: Cardo,times new roman,georgia;
+		text-align: center;
+	}
+	.outras-imagens h3 {
+		font-variant: small-caps;
+		font-size: 18px;
+		font-family: Cardo,times new roman,georgia;
+		margin: 10px;
+	}
 
 /* ============================== WIDGET */
 .oldnews_recent_posts_thumbnails_widget h3 {

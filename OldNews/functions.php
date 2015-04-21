@@ -201,6 +201,9 @@ function news_save( $post_id, $post ) {
 	// brasil:
 	delete_transient( 'category_news-3' );
 	// mundo:
+	delete_transient( 'category_news-2' );
+	// imagens do mez:
+	delete_transient( 'imagens-do-mez' );
 	
 }
 add_action('save_post', 'news_save', 10, 2 );
