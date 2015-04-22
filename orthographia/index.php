@@ -30,7 +30,7 @@
 			"/catolicismo/i" => "catholicismo",
 			"/civilização/i" => "civilisação",
 			"/civilizações/i" => "civilizações",
-			"/química/i" => "chimica",
+			"/químic/i" => "chimic",
 			"/crist/i" => "christ",
 			"/coleç/i" => "collecç",
 			"/colonizaç/i" => "colonisaç",
