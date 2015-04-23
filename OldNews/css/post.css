@@ -84,13 +84,18 @@ cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	font-family: Georgia, "Bitstream Charter", serif;
-	font-style: italic;
-	font-weight: normal;
-	margin: 0 3em;
+	font-family: Georgia, "Bitstream Charter", serif !important;
+	font-style: italic !important;
+	font-weight: normal !important;
+	margin: 0 2em !important;
+	padding: 0 2em !important;
+	border-left: 1px solid #666 !important;
+}
+blockquote p {
+	text-indent: 0 !important;
 }
 blockquote em, blockquote i, blockquote cite {
-	font-style: normal;
+	font-style: normal !important;
 }
 blockquote cite {
 	color: #666;

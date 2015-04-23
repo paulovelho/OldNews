@@ -21,13 +21,19 @@
 <div class="row">
 	<div class="col-md-8">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<div class="full-row">
-			<span class="category"><?php the_category() ?></span>
-			<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+			<div class="row search-result">
+				<div class="col-md-4 right">
+					<span class="category"><?php $cat = get_the_category(); echo $cat[0]->name; ?></span>
+					<span class="date"><?php echo formatDatePost(get_the_time("Y-m-d")); ?></span>
+				</div>
+				<div class="col-md-8">
+					<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+					<div class="sentry"><?php the_excerpt(); ?></div>
+					<div class="read-all right">
+						<a href="<?php the_permalink() ?>">Leia notícia completa</a>
+					</div>
+				</div>
 
-			<small><span class="sigdate">{</span>  <span class="post-comments"><?php comments_popup_link(__('No Comment', 'Detox'), __('1 Comment', 'Detox'), __('% Comments', 'Detox'), '', __('Closed', 'Detox')); ?></span> \ <?php if(function_exists('the_tags')) {$my_tags = get_the_tags();if ( $my_tags != "" ){ the_tags('Tags: ', ', ', ''); } else {echo "";} }?> <?php if(function_exists('UTW_ShowTagsForCurrentPost')) { echo 'Tags: ';UTW_ShowTagsForCurrentPost("commalist");echo ''; } ?> \ <?php the_time('M', 'Detox'); ?><span class="bigdate"><?php the_time('j', 'Detox'); ?> }</span></small>
-			<div class="sentry"><?php the_excerpt(); ?></div>
-			<div class="more"><span class="bigdate">{</span> <a href="<?php the_permalink() ?>"><?php _e('Read more', 'Detox')?> &#187; &#187;</a> <span class="bigdate">}</span></div>
 			</div>
 		<?php endwhile; else: ?>
 		<p>Nada foi encontrado em nossos arquivos!</p>

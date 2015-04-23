@@ -25,12 +25,12 @@ body{
 }
 
 /* ----------------------------------- base */
-a,a:visited{ 
+a,a:visited,a:active, a:link{ 
 	color:#444 !important;
-	text-decoration:none; 
+	text-decoration: none;
 }
-a:active, a:link{
-	text-decoration:none;
+p a {
+	text-decoration: underline !important;
 }
 a:hover{ 
 	text-decoration:none; 
@@ -51,11 +51,16 @@ img, iframe {
 h1{
 	font: normal 42px/80% UnifrakturMaguntia,Times New Roman,Times,serif;
 	letter-spacing:-1px;
+	text-decoration: none;
 }
 h2{
 	font: normal 40px/80% Cardo,Georgia,Times New Roman,Times,serif;
 	letter-spacing: auto;
 	line-height: auto;
+	text-decoration: none !important;
+}
+h1 a, h2 a, h3 a, h4 a{
+	text-decoration: none !important;
 }
 p {
 	text-align: justify;
@@ -174,10 +179,29 @@ p {
 	padding: 20px 0;
 	background-color: #444;
 	height: 300px;
-	color: #CCC;
+	color: #AAA;
 }
-
-
+	#footer h3 {
+		font-weight: bold;
+		font-size: 16px;
+		font-family: Times New Roman;
+		margin: 10px;
+	}
+	#footer input {
+		clear: both;
+		background-color: #AAA;
+		color: #000;
+		padding: 10px;
+		font-family: Times New Roman;
+		height: 30px;
+	}
+	#footer a {
+		color: #AAA !important;
+	}
+	.badges img {
+		width: 70px; height: 70px;
+		margin-bottom: 20px;
+	}
 
 /* ============================== HOME */
 span.category, span.date {
@@ -267,9 +291,41 @@ span.date {
 		text-align: left !important;
 	}
 
+.read-all {
+	color: #666;
+	text-decoration: underline;
+	margin: 10px;
+	float: right;
+}
+
+/* ============================== SEARCH */
+h2.search-title {
+	margin-bottom: 20px;
+}
+	h2.search-title span {
+		color: #666;
+		text-decoration: underline;
+	}
+
+.search-result {
+	margin-top: 20px;
+}
+	.search-result h3 {
+		clear: both;
+		font-weight: bold;
+		font-family: Cardo,times new roman,georgia;
+		font-size: 20px;
+		padding-top: 10px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+
+
+
 /* ============================== POST */
 article {
 	display: block;
+	margin-bottom: 50px;
 }
 	article h2 {
 		text-align: center;

@@ -38,6 +38,7 @@
 			"/comérc/i" => "commerc",
 			"/comunic/i" => "communic",
 			"/contudo/i" => "comtudo",
+			"/contat/i" => "contact",
 			"/crânio/i" => "craneo",
 			"/\bcriaç/i" => "\bcreaç",
 			"/criança/i" => "creança",
