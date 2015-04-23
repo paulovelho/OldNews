@@ -5,9 +5,17 @@
 	<div id="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-9"></div>
-				<div class="col-md-3">
-					<span>Busca nos arquivos</span>
+				<div class="col-md-4">
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column1') ) : ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-4">
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column2') ) : ?>
+					<?php endif; ?>
+				</div>
+				<div class="col-md-4">
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column3') ) : ?>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
