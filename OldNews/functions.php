@@ -12,13 +12,46 @@ add_post_type_support( '{{post_type}}', 'simple-page-sidebars' );
 
 register_sidebars( 1,
 	array(
-    'name' => __('Post widget', 'OldNews'),
+		'name' => __('Post widget', 'OldNews'),
 		'id' => 'sidebar',
 		'description' => __('The single bar widget area for your single posts.', 'OldNews'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>'
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	) 
+);
+register_sidebars( 1,
+	array(
+		'name' => __('Footer widget - Column 1', 'OldNews'),
+		'id' => 'footer-column1',
+		'description' => __('Column 1 for footer.', 'OldNews'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	) 
+);
+register_sidebars( 1,
+	array(
+		'name' => __('Footer widget - Column 2', 'OldNews'),
+		'id' => 'footer-column2',
+		'description' => __('Column 1 for footer.', 'OldNews'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
+	) 
+);
+register_sidebars( 1,
+	array(
+		'name' => __('Footer widget - Column 3', 'OldNews'),
+		'id' => 'footer-column3',
+		'description' => __('Column 1 for footer.', 'OldNews'),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
 	) 
 );
 
