@@ -13,6 +13,10 @@
 					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column2') ) : ?>
 					<?php endif; ?>
 					<br/>
+				</div>
+				<div class="col-md-4">
+					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column3') ) : ?>
+					<?php endif; ?>
 					<div class="badges">
 						<a href="http://www.facebook.com/100anosatras">
 							<img src="<?php bloginfo('template_directory'); ?>/images/facebook.png" alt="facebook" title="facebook" />
@@ -27,10 +31,6 @@
 							<img src="<?php bloginfo('template_directory'); ?>/images/mail.png" alt="Contacto" title="Contacto" />
 						</a>
 					</div>
-				</div>
-				<div class="col-md-4">
-					<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-column3') ) : ?>
-					<?php endif; ?>
 				</div>
 			</div>
 		</div>

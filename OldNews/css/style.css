@@ -198,6 +198,9 @@ p {
 	#footer a {
 		color: #AAA !important;
 	}
+	.badges {
+		margin-top: 20px;
+	}
 	.badges img {
 		width: 70px; height: 70px;
 		margin-bottom: 20px;

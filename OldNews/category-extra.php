@@ -3,7 +3,7 @@
 
 <div id="content">
 	<header class="page-header">
-		<h1 class="page-title">Da Edição</h1>
+		<h1 class="page-title">+ Mais</h1>
 
 	</header>
 
