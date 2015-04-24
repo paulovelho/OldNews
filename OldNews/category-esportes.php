@@ -11,7 +11,7 @@
 
 <div id="content">
 	<header class="page-header">
-		<h1 class="page-title">Esportes</h1>
+		<h1 class="page-title">Despôrtos</h1>
 	</header>
 
 	<div class="row">

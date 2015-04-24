@@ -222,11 +222,69 @@ function home_news() {
 	return $home_news;
 }
 
+function home_extra(){
+	$news = [];
+	// imagem do mez:
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 1,
+		'cat' => 35,
+		'no_found_rows' => true,
+		'update_post_meta_cache' => false,
+		'update_post_term_cache' => false,
+		'orderby' => 'most_recent'
+	);
+	$the_query = new WP_Query( $args );
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$news["image-mes"]["title"] = get_the_title();
+		$news["image-mes"]["link"] = get_the_permalink();
+		$news["image-mes"]["thumb"] = get_the_post_thumbnail(get_the_ID(), 'large');
+		$news["image-mes"]["description"] = get_the_excerpt();
+	endwhile;
+
+	// classificados
+	// anuncio:
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 2,
+		'cat' => 37,
+		'no_found_rows' => true,
+		'update_post_meta_cache' => false,
+		'update_post_term_cache' => false,
+		'orderby' => 'rand'
+	);
+	$the_query = new WP_Query( $args );
+	$news["classificados"] = array();
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		$classificado = [];
+		$classificado["title"] = get_the_title();
+		$classificado["content"] = get_the_content();
+		array_push($news["classificados"], $classificado);
+	endwhile;
+
+	// anuncio:
+	$args = array(
+		'post_type' => 'post',
+		'posts_per_page' => 2,
+		'cat' => 66,
+		'no_found_rows' => true,
+		'update_post_meta_cache' => false,
+		'update_post_term_cache' => false,
+		'orderby' => 'rand'
+	);
+	$the_query = new WP_Query( $args );
+	$news["anuncio"] = array();
+	while ( $the_query->have_posts() ) : $the_query->the_post();
+		array_push($news["anuncio"], get_the_post_thumbnail(get_the_ID(), 'large'));
+	endwhile;
+
+	return $news;
+}
+
 /**
  * Deletes the home_news transient if a portfolio post is updated
  */
 function news_save( $post_id, $post ) {
-
 	// If this is an auto save routine don't do anyting
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
 		return;
@@ -235,11 +293,15 @@ function news_save( $post_id, $post ) {
 	delete_transient( 'category_news-3' );
 	// mundo:
 	delete_transient( 'category_news-2' );
+	// esportes:
+	delete_transient( 'category_news-5' );
+	// ciências:
+	delete_transient( 'category_news-6' );
+	// cultura:
+	delete_transient( 'category_news-4' );
 	// imagens do mez:
 	delete_transient( 'imagens-do-mez' );
-	
 }
 add_action('save_post', 'news_save', 10, 2 );
-
 
 ?>

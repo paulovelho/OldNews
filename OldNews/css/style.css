@@ -235,6 +235,10 @@ span.date {
 		text-indent: 70px;
 		margin-top: 30px;
 	}
+	.manchete .manchete-img p {
+		text-indent: 0 !important;
+		margin-top: 10px !important;
+	}
 	.manchete .category {
 		margin-top: 30px;
 	}
@@ -300,6 +304,38 @@ span.date {
 	text-decoration: underline;
 	margin: 10px;
 	float: right;
+}
+
+.line-title h2 {
+	position: relative;
+	top: -40px;
+	background-color: #EEE;
+	width: 60%;
+	margin-left: 20px;
+	padding: 0 20px;
+}
+.line-title hr {
+	background-color: #666; 
+}
+
+.classificados {
+	border-left: 1px solid #666;
+}
+	.classificados h2 {
+		margin-bottom: 20px;
+	}
+	.classificados h3 {
+		font-size: 18px;
+		font-family: Cardo, Georgia;
+		font-weight: bold;
+		margin-bottom: 5px;
+		font-variant: small-caps;
+	}
+	.classificados p {
+		font-family: Times New Roman;
+	}
+.anuncio img {
+	width: 100%;
 }
 
 /* ============================== SEARCH */

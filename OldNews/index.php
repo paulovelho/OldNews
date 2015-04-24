@@ -16,7 +16,18 @@
 		</div>
 		<div class="col-md-10">
 			<a href="<?=$news["manchete"]["link"]?>" title="<?=$news["manchete"]["title"]?>"><h2><?=$news["manchete"]["title"]?></h2></a>
-			<p><?=$news["manchete"]["content"]?></p>
+			<?
+			if(empty($news["manchete"]["thumb"])){
+				echo "<p>".$news["manchete"]["content"]."</p>";
+			} else {
+				?>
+				<div class="row">
+					<div class="col-md-8"><p><?=$news["manchete"]["content"]?></p></div>
+					<div class="col-md-4 manchete-img"><p><?=$news["manchete"]["thumb"]?></p></div>
+				</div>
+				<?
+			}
+			?>
 		</div>
 	</div>
 
@@ -53,7 +64,21 @@
 
 		// 5 categories, adds one space:
 		?>
-			<div class="col-md-4 quadro">&nbsp;</div>
+			<div class="col-md-4 quadro">
+				<span class="category"><?=$news['extras'][1]["category"]?></span>
+				<span class="date"><?=formatDate($news['extras'][1]["time"])?></span>
+				<?php
+				if(!empty($news['extras'][1]["thumb"])) { 
+					echo "<a href='".$news['extras'][1]["link"]."' title='".$news['extras'][1]["title"]."'>";
+					echo "<div class='thumb_container'>".$news['extras'][1]["thumb"]."</div>";
+					echo "<h3 class='thumb_title'>".$news['extras'][1]["title"]."</h3>";
+					echo "</a>";
+				} else { 
+					echo "<a href='".$news['extras'][1]["link"]."' title='".$news['extras'][1]["title"]."'><h3>".$news['extras'][1]["title"]."</h3></a>";
+				}
+				?>
+				<p><?=$n["content"]?></p>
+			</div>
 		</div>
 	</div>
 

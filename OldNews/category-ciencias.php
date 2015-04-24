@@ -11,7 +11,7 @@
 
 <div id="content">
 	<header class="page-header">
-		<h1 class="page-title">Ciências</h1>
+		<h1 class="page-title">Sciencias</h1>
 	</header>
 
 	<div class="row">

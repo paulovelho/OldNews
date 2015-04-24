@@ -81,7 +81,7 @@ strong {
 	font-weight: bold;
 }
 cite, em, i {
-	font-style: italic;
+	font-style: italic !important;
 }
 blockquote {
 	font-family: Georgia, "Bitstream Charter", serif !important;

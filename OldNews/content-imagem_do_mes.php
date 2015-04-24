@@ -68,7 +68,7 @@ function getImagensMez($except){
 	return $imgs;
 }
 
-//$imagens = get_transient('imagens-do-mez');
+$imagens = get_transient('imagens-do-mez');
 if(!$imagens) $imagens = getImagensMez($current_id);
 
 ?>
