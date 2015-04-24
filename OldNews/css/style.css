@@ -41,6 +41,14 @@ a:hover{
 	-moz-transition: all .35s linear;
 	-webkit-transition: all .35s linear;
 }
+a#playPause {
+	display: none;
+}
+a#bottomNavClose div {
+	width: 22px;
+	background-position: center right;
+	margin-left: 44px;
+}
 img, iframe {
 	/* we want all images black and white! - and so does the comments iframe */
 	-webkit-filter: grayscale(100%);
