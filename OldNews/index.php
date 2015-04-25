@@ -77,7 +77,7 @@
 					echo "<a href='".$news['extras'][1]["link"]."' title='".$news['extras'][1]["title"]."'><h3>".$news['extras'][1]["title"]."</h3></a>";
 				}
 				?>
-				<p><?=$n["content"]?></p>
+				<p><?=$news['extras'][1]["content"]?></p>
 			</div>
 		</div>
 	</div>
@@ -95,7 +95,7 @@
 			<p><?=$news["imagem"]["caption"]?></p>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-4 extra-news">
 			<span class="category"><?=$news["extras"][0]["category"]?></span>
 			<span class="date"><?=formatDate($news["extras"][0]["time"])?></span>
 				<?php
