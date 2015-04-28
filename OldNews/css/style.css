@@ -311,6 +311,10 @@ span.date {
 		text-align: left !important;
 	}
 
+	.extra1 .extra-news img {
+		width: 100%;
+	}
+
 .read-all {
 	color: #666;
 	text-decoration: underline;
