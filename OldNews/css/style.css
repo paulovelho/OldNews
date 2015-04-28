@@ -205,6 +205,7 @@ p {
 	}
 	#footer a {
 		color: #AAA !important;
+		text-decoration: underline;
 	}
 	.badges {
 		margin-top: 20px;
@@ -212,6 +213,9 @@ p {
 	.badges img {
 		width: 70px; height: 70px;
 		margin-bottom: 20px;
+	}
+	.badges a {
+		text-decoration: none !important;
 	}
 
 /* ============================== HOME */
@@ -368,7 +372,23 @@ h2.search-title {
 		margin-bottom: 10px;
 	}
 
-
+/* ============================== CREDITOS */
+.creditos a {
+	text-decoration: underline;
+}
+.creditos .row {
+	margin-top: 30px;
+}
+	.creditos .row img {
+		height: 150px;
+		border: 0;
+		margin: 20px;
+	}
+	.creditos h4 {
+		font-size: 16px;
+		font-weight: bold;
+		font-style: italic;
+	}
 
 /* ============================== POST */
 article {
