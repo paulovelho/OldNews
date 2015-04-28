@@ -449,6 +449,7 @@ footer.entry-meta {
 }
 	.entry-meta .tags {
 		font-size: 12px;
+		display: none;
 	}
 		.entry-meta .tags .i {
 			font-family: Times New Roman;
