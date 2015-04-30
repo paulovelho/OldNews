@@ -251,6 +251,9 @@ span.date {
 		text-indent: 0 !important;
 		margin-top: 10px !important;
 	}
+	.manchete .manchete-img img {
+		width: 100%;
+	}
 	.manchete .category {
 		margin-top: 30px;
 	}
