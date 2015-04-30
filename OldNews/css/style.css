@@ -334,25 +334,32 @@ span.date {
 	background-color: #666; 
 }
 
-.classificados {
-	border-left: 1px solid #666;
+.classificados h2 {
+	margin-bottom: 20px;
 }
-	.classificados h2 {
-		margin-bottom: 20px;
-	}
-	.classificados h3 {
-		font-size: 18px;
-		font-family: Cardo, Georgia;
-		font-weight: bold;
-		margin-bottom: 5px;
-		font-variant: small-caps;
-	}
-	.classificados p {
-		font-family: Times New Roman;
-	}
+.classificados h3 {
+	font-size: 18px;
+	font-family: Cardo, Georgia;
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-variant: small-caps;
+}
+.classificados p {
+	font-family: Times New Roman;
+}
 .anuncio img {
 	width: 100%;
 }
+
+
+.extra-home-img-mez {
+	border-right: 1px solid #666;
+}
+
+.extra-home-img-mez img {
+	width: 100%;
+}
+
 
 /* ============================== SEARCH */
 h2.search-title {
@@ -395,10 +402,22 @@ h2.search-title {
 	}
 
 /* ============================== POST */
+@media only screen and (min-width: 480px) {
+	article {
+		border-right: 1px solid #666;
+		padding-right: 10px;
+	}
+}
+
 article {
 	display: block;
 	margin-bottom: 50px;
 }
+	.content-extra article {
+		border-right: 0 !important;
+		padding-right: 0 !important;
+	}
+
 	article h2 {
 		text-align: center;
 		line-height: 50px;

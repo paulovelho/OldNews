@@ -13,14 +13,14 @@
 	</header>
 
 	<div class="row">
-		<div class="col-md-7 category-page">
+		<div class="col-md-8 category-page">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<div class="page">
 					<?=apply_filters('the_content', $page->post_content)?>
 				</div>
 			</article>
 		</div>
-		<div class="col-md-5 category-side">
+		<div class="col-md-4 category-side">
 			<ul>
 			<?
 			$news = get_transient('category_news-'.$category_id);

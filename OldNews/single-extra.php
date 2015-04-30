@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="full-row">
+<div class="full-row content-extra">
 	<?php
 		switch ($cat_id) {
 			case 35:

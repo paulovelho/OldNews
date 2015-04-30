@@ -12,8 +12,8 @@ $news = home_extra();
 	<header class="page-header">
 		<h1 class="page-title">+ Mais</h1>
 	</header>
-	<div class="row">
-		<div class="col-md-6 line-title">
+	<div class="row caderno-extra">
+		<div class="col-md-6 line-title extra-home-img-mez">
 			<hr/>
 			<h2>Imagem do mez</h2>
 			<a href="<?=$news["image-mes"]["link"]?>" title="<?=$news["image-mes"]["description"]?>">
