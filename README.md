@@ -14,3 +14,8 @@ This tool is related to 1915's portuguese language, so there is no point describ
 É a ferramenta que é usada na conversão de todos os textos do 100anosatras.com.br antes de sua publicação.
 Acesso por: [http://orthographia.100anosatras.com.br/](http://orthographia.100anosatras.com.br/)
 
+```
+git clone https://github.com/paulovelho/OldNews
+cp -rv OldNews/OldNews/* 100AnosAtras/
+rm -rf OldNews
+```

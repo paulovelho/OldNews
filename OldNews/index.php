@@ -4,9 +4,8 @@
 <div id="content home">
 
 <?php 
-//	$news = get_transient('home_news');
+	$news = get_transient('home_news');
 	if(!$news) $news = home_news();
-
 //	p_r($news);
 ?>
 	<div class="row manchete bottom-line">

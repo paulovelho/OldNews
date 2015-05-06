@@ -117,7 +117,8 @@ function category_news($catID){
 		'cat' => $catID,
 		'no_found_rows' => true,
 		'update_post_meta_cache' => false,
-		'update_post_term_cache' => false
+		'update_post_term_cache' => false,
+		'orderby' => 'most_recent'
 	);
 	$the_query = new WP_Query( $args );
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -162,14 +163,15 @@ function home_news() {
 			'cat' => $cat_id,
 			'no_found_rows' => true,
 			'update_post_meta_cache' => false,
-			'update_post_term_cache' => false
+			'update_post_term_cache' => false,
+			'orderby' => 'most_recent'
 		);
 		$the_query = new WP_Query( $args );
 
 		// The Loop
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			/* All the data pulled is saved into an array which we'll save later */
-			$news[get_the_date('Ymd')] = array(
+			$news[get_the_date('Ymdhis')] = array(
 				'category' => $cat_name,
 				'id' => get_the_ID(),
 				'title' => get_the_title(),
