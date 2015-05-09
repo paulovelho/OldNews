@@ -15,6 +15,7 @@ This tool is related to 1915's portuguese language, so there is no point describ
 Acesso por: [http://orthographia.100anosatras.com.br/](http://orthographia.100anosatras.com.br/)
 
 ```
+cd wp-content/themes/
 git clone https://github.com/paulovelho/OldNews
 cp -rv OldNews/OldNews/* 100AnosAtras/
 rm -rf OldNews
