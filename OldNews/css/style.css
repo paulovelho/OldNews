@@ -494,7 +494,12 @@ footer.entry-meta {
 	margin-top: 20px;
 	width: 100%;
 }
-	.outras-imagens img {
+.row.outras-imagens {
+	margin-top: 20px;
+	border-bottom: 1px solid #666;
+	padding-bottom: 20px;
+}
+  	.outras-imagens img {
 		width: 100%;
 	}
 	.outras-imagens h4 {

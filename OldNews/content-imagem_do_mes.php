@@ -87,7 +87,7 @@ if(!$imagens) $imagens = getImagensMez($current_id);
 	</div>
 		<?
 		if($index == 3) {
-			echo "</div><div class='row'>";
+			echo "</div><div class='row outras-imagens'>";
 		}
 		$index ++;
 	}
