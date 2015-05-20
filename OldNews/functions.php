@@ -159,7 +159,7 @@ function home_news() {
 	foreach ($categories as $cat_id => $cat_name) {
 		$args = array(
 			'post_type' => 'post',
-			'posts_per_page' => 2,
+			'posts_per_page' => 4,
 			'cat' => $cat_id,
 			'no_found_rows' => true,
 			'update_post_meta_cache' => false,
