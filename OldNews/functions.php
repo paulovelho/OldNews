@@ -101,9 +101,9 @@ function getParentCategories(){
 function getArrCategories(){
 	return array(
 		3 => "Brasil", 
-		6 => "Ciências",
+		6 => "Sciencias",
 		4 => "Cultura",
-		5 => "Esportes",
+		5 => "Despôrtos",
 		2 => "Mundo"
 	);
 }
