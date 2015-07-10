@@ -18,7 +18,8 @@ $news = home_extra();
 			<h2>Imagem do mez</h2>
 			<a href="<?=$news["image-mes"]["link"]?>" title="<?=$news["image-mes"]["description"]?>">
 			<?=$news["image-mes"]["thumb"]?><br/>
-			<p><?=$news["image-mes"]["title"]?></p>
+			<h4><?=$news["image-mes"]["title"]?></h4>
+			<p><?=$news["image-mes"]["description"]?></p>
 			</a>
 		</div>
 		<div class="col-md-3 classificados">
